@@ -113,7 +113,7 @@ router.post('/booking', function(req, res, next) {
         }
       })
     } else {
-      res.sendStatus(500);
+      res.sendStatus(400);
     }
   })
 });
@@ -137,7 +137,7 @@ router.put('/booking/:id', function(req, res, next) {
                 res.send(booking);
               }
             } else {
-              res.sendStatus(405);
+              res.sendStatus(404);
             }
           })
         })
@@ -169,7 +169,7 @@ router.patch('/booking/:id', function(req, res) {
             res.send(booking);
           }
         } else {
-          res.sendStatus(405);
+          res.sendStatus(404);
         }
       })
     });
@@ -187,7 +187,7 @@ router.delete('/booking/:id', function(req, res, next) {
             res.sendStatus(201);
         });
       } else {
-        res.sendStatus(405);
+        res.sendStatus(404);
       }
     });
   } else {
@@ -206,7 +206,7 @@ router.post('/auth', function(req, res, next){
 
     res.send({'token': token});
   } else {
-    res.send({'reason': 'Bad credentials'});
+    res.sendStatus(401, 'Bad credentials');
   }
 });
 
