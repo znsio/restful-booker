@@ -35,7 +35,7 @@ app.use(xmlparser({trim: false, explicitArray: false}));
 // This validation code is only checking responses, not requests.
 app.use( OpenApiValidator.middleware({
    apiSpec: "./oas.yaml",
-   validateRequests: false,
+   validateRequests: true,
    validateResponses: false
 }));
 
